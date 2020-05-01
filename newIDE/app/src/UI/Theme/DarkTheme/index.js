@@ -52,7 +52,8 @@ const gdevelopTheme = {
   },
   closableTabs: {
     fontFamily,
-    backgroundColor: backgroundColor,
+    containerBackgroundColor: backgroundColor,
+    backgroundColor: canvasColor,
     textColor: '#878787',
     selectedBackgroundColor: gdevelopDarkBlue,
     selectedTextColor: almostWhite,
@@ -148,17 +149,56 @@ const muiTheme = createMuiTheme({
     MuiTabs: {
       root: {
         backgroundColor: gdevelopDarkBlue,
+        minHeight: 32, // Reduce the height of tabs to 32px
       },
     },
     MuiTab: {
       textColorPrimary: {
         color: '#fff !important',
       },
+      root: {
+        // Reduce the height of tabs to 32px
+        paddingTop: 0,
+        paddingBottom: 0,
+        minHeight: 32,
+      },
     },
     // Remove the web-ish "pointer" (hand) cursor from buttons
     MuiButtonBase: {
       root: {
         cursor: 'default',
+      },
+    },
+    // Reduce default margins on tables:
+    MuiTableCell: {
+      sizeSmall: {
+        paddingTop: 0,
+        paddingBottom: 0,
+      },
+    },
+    // Reduce default margins on Dialogs:
+    MuiDialogTitle: {
+      root: {
+        padding: 8,
+      },
+    },
+    MuiDialogContent: {
+      root: {
+        padding: 8,
+      },
+    },
+    // Remove default margins on form controls (we already use a Grid)
+    MuiFormControl: {
+      marginDense: {
+        marginTop: 0,
+        marginBottom: 0,
+      },
+    },
+    MuiCheckbox: {
+      root: {
+        // Cancel padding around Checkbox
+        marginTop: -9,
+        marginBottom: -9,
       },
     },
     // Use non rounded buttons
